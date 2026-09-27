@@ -60,7 +60,7 @@ RUN case "$TARGETARCH" in \
     esac && \
     curl -fsSL --retry 3 "https://download.docker.com/linux/static/stable/${DOCKER_ARCH}/docker-${DOCKER_CLI_VERSION}.tgz" \
       -o /tmp/docker.tgz && \
-    tar -C /usr/local/bin -xzf /tmp/docker.tgz docker/docker && \
+    tar -C /usr/local/bin -xzf /tmp/docker.tgz docker && \
     rm /tmp/docker.tgz
 
 # ─── Cleanup ────────────────────────────────────────────────────
