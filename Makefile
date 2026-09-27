@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := default
 
-IMAGE ?= rg.fr-par.scw.cloud/averagemarcus-private/hermes-sandbox-image:latest
+IMAGE ?= rg.fr-par.scw.cloud/averagemarcus/hermes-sandbox-image:latest
 
 .PHONY: test # Run all tests, linting and format checks
 test: lint check-format run-tests

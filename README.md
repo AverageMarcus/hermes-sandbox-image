@@ -4,27 +4,9 @@ A backend sandbox image with tooling for use by Hermes agents
 
 ## Features
 
-## Install
-
-```sh
-
-```
-
-## Building from source
-
-With Docker:
-
-```sh
-make docker-build
-```
-
-Standalone:
-
-```sh
-make build
-```
-
-## Resources
+* Python
+* NodeJS
+* Golang
 
 ## Contributing
 
