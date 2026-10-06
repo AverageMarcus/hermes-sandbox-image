@@ -51,11 +51,12 @@ RUN case "$TARGETARCH" in \
       -o /tmp/go.tar.gz && \
     tar -C /usr/local -xzf /tmp/go.tar.gz && \
     rm /tmp/go.tar.gz
-ENV PATH="/usr/local/go/bin:/root/go/bin:/usr/local/bin:${PATH}"
+ENV PATH="/usr/local/go/bin:/usr/local/bin:${PATH}"
+ENV GOBIN="/usr/local/bin"
 RUN go version
 RUN go install golang.org/x/tools/cmd/goimports@latest && \
     go install honnef.co/go/tools/cmd/staticcheck@latest && \
-    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/${GOLANG_LINT_VERSION}/install.sh | sh -s -- -b /root/go/bin ${GOLANG_LINT_VERSION}
+    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/${GOLANG_LINT_VERSION}/install.sh | sh -s -- -b /usr/local/bin ${GOLANG_LINT_VERSION}
 
 # ─── Docker CLI ──────────────────────────────────────────────────
 ARG DOCKER_CLI_VERSION=29.8.1
@@ -77,4 +78,4 @@ RUN rm -rf /var/lib/apt/lists/* \
     /var/tmp/*
 
 # ─── Persist Go on PATH after /etc/profile resets it ────────────
-RUN printf 'export PATH="/usr/local/go/bin:/root/go/bin:/usr/local/bin:$PATH"\n' > /etc/profile.d/go.sh
+RUN printf 'export PATH="/usr/local/go/bin:/usr/local/bin:$PATH"\n' > /etc/profile.d/go.sh
