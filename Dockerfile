@@ -26,7 +26,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         wget \
         xz-utils \
         yq \
-        yt-dlp \
     && rm -rf /var/lib/apt/lists/*
 
 # ─── Python 3 ---────────────────────────────────────────────────
@@ -37,7 +36,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         python3-pip \
         pipx \
         libffi-dev \
-    && pip install --break-system-packages pipenv uv \
+    && pip install --break-system-packages pipenv uv yt-dlp requests \
     && rm -rf /var/lib/apt/lists/*
 
 # ─── Node.js 22 LTS (NodeSource) ────────────────────────────────
