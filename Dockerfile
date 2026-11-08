@@ -98,6 +98,11 @@ RUN curl -sLO https://github.com/kubernetes-sigs/kustomize/releases/download/kus
     chmod +x /usr/bin/kustomize && \
     rm kustomize_${KUSTOMIZE_VERSION}_linux_${ARCH}.tar.gz
 
+# ─── yt-dlp -────────────────────────────────────────────────────
+RUN curl -sLO https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux && \
+    mv yt-dlp_linux /usr/bin/yt-dlp && \
+    chmod +x /usr/bin/yt-dlp
+
 # ─── Cleanup ────────────────────────────────────────────────────
 RUN rm -rf /var/lib/apt/lists/* \
     /tmp/* \
